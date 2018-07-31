@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="clash-royale-webapp">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `clash-royale-webapp`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ClashRoyaleWebapp extends Polymer.Element {
+      static get is() { return 'clash-royale-webapp'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'clash-royale-webapp'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ClashRoyaleWebapp.is, ClashRoyaleWebapp);
+  </script>
+</dom-module>
