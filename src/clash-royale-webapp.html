@@ -1,15 +1,86 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-layout/demo/sample-content.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-progress/paper-progress.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<!-- local components-->
+
+<link rel="import" href="clan-clash/clan-clash.html">
+<link rel="import" href="app-theme/app-theme.html">
 
 <dom-module id="clash-royale-webapp">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]!</h2>
-  </template>
+    <custom-style>
+      <style is="custom-style">
+        html,
+        body {
+          margin: 0;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          background: #f1f1f1;
+          max-height: 368px;
+        }
 
+        app-toolbar {
+          background-color: #4285f4;
+          color: #fff;
+        }
+
+        paper-icon-button {
+          --paper-icon-button-ink-color: white;
+        }
+
+        paper-icon-button+[main-title] {
+          margin-left: 24px;
+        }
+
+        paper-progress {
+          display: block;
+          width: 100%;
+          --paper-progress-active-color: rgba(255, 255, 255, 0.5);
+          --paper-progress-container-color: transparent;
+        }
+
+        app-header {
+          position: inherit;
+          @apply --layout-fixed-top;
+          color: #fff;
+          --app-header-background-rear-layer: {
+            background-color: #ef6c00;
+          }
+          ;
+        }
+
+        app-drawer {
+          --app-drawer-scrim-background: rgba(0, 0, 100, 0.8);
+          --app-drawer-content-container: {
+            background-color: #B0BEC5;
+          }
+        }
+
+        clan-clash {
+          padding-top: 5em;
+        }
+      </style>
+    </custom-style>
+
+    <app-header>
+      <app-toolbar>
+        <div main-title>Crash royale</div>
+        <paper-icon-button icon="delete"></paper-icon-button>
+        <paper-icon-button icon="search"></paper-icon-button>
+        <paper-progress value="10" indeterminate bottom-item></paper-progress>
+      </app-toolbar>
+    </app-header>
+    <clan-clash></clan-clash>
+    <clan-clash></clan-clash>
+    <clan-clash></clan-clash>
+    <clan-clash></clan-clash>
+    <clan-clash></clan-clash>
+
+  </template>
   <script>
     /**
      * `clash-royale-webapp`
@@ -21,14 +92,6 @@
      */
     class ClashRoyaleWebapp extends Polymer.Element {
       static get is() { return 'clash-royale-webapp'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'clash-royale-webapp'
-          }
-        };
-      }
     }
 
     window.customElements.define(ClashRoyaleWebapp.is, ClashRoyaleWebapp);
